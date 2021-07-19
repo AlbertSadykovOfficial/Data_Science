@@ -1,0 +1,74 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8">
+	<title>Data Science Application</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">  
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="dc.css">
+	<link rel="stylesheet" href="application.css">
+</head>
+<body>
+	<main class='container'>
+		<!-- layout:
+				title
+				|  input table                                      | (row 1)
+				|  filtered table                                   | (row 2)
+				[ reset button ]
+				|  stock-over-time chart | stock-per-medicine chart | (row 3)
+				|  light-sensitive chart |                          | (row 4)
+				        (column 1)               (column 2)
+		-->
+		<h1>Data Science Application</h1>
+		<div class="row">
+			<div class='col-lg-12'>
+				<div id="inputtable" class="well well-sm"></div>
+				<!-- Здесь будет позже располгаться график -->
+			</div>
+		</div>   
+		<div class="row">
+			<div class='col-lg-12'>
+			    <div id="filteredtable" class="well well-sm"></div>
+			    <!-- Здесь будет позже располгаться график  -->
+			</div>
+		</div>   
+		<button class="btn btn-success">Сбросить Фильтры</button>
+		<div class="row">
+			<div class="col-lg-6">
+				<div id="StockOverTime" class="well well-sm"></div>  
+				<div id="LightSensitiveStock" class="well well-sm"></div> 
+			</div>
+			<div class="col-lg-6">
+				<div id="StockPerMedicine" class="well well-sm"></div> 
+			</div>
+		</div>
+		
+		<!-- Отлов ошибок --> 
+		<!-- Предупреждаем о том, что нужно запускать сервер, а не открывать файл html напрямую --> 
+		<div class='err hide jumbotron alert-danger'>
+			<h2>Загрузка информации CSV файла НЕ удалась </h2>
+			<div data-http='true' class='hide'>
+				<p>Этого не должно было быть.</p>
+				<p>Убедитесь, что данные загруены корректно<p>
+				<p>Подробности:  <em></em></p>
+			</div>
+			<div data-http='false' class='hide'>
+				<p>Выглядит так, что вы открыли файл <code>index.html</code> напрямую, кликнув 2 раза на него(без сервера)</p>
+				<p>Так программа работать не будет, требуется запустить простой HTTP-сервер в каталоге, где располагаются файлы.</p>
+				<p>Откройте каталог с приложением и выполните команду:</p>
+				<p>Python 2: <code>python -m SimpleHTTPServer</code></p>
+				<p>Python 3: <code>python -m http.server 8000</code></p> 
+			</div>
+		</div>
+    <!-- Конец блока отлова ошибок -->
+	</main>
+
+	<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script> 
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+	<script src="crossfilter.min.js"></script>
+	<script src="d3.v3.min.js"></script>
+	<script src="dc.min.js"></script>
+
+	<script src="application.js"></script>
+</body>
+</html>
